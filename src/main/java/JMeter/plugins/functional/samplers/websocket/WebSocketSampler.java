@@ -92,7 +92,9 @@ public class WebSocketSampler extends AbstractSampler implements TestStateListen
         if (headerManager != null) {
             for (int i = 0; i < headerManager.size(); i++) {
                 Header header = headerManager.get(i);
-                request.setHeader(header.getName(), header.getValue());
+                String headerName = header.getName();
+                log.info("Setting header " + headerName);
+                request.setHeader(headerName, header.getValue());
             }
         }
 
